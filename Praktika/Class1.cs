@@ -48,9 +48,19 @@ namespace Praktika
         /// <returns>Сумма двух наибольших из чисел</returns>
         public static int GetSummOfTwoMaxValues(int value1, int value2, int value3)
         {
-            var list = new List<int>() { value1, value2, value3 };
-            
-            return list.OrderByDescending(x => x).Take(2).Sum();
+            if (value1 <= value2 && value1 <= value3)
+            {
+                return value2 + value3;
+            }
+            else if (value2 <= value1 && value2 <= value3)
+            {
+                return value1 + value3;
+            }
+            else if (value3 <= value1 && value3 <= value2)
+            {
+                return value1 + value2;
+            }
+            else return 0;
         }
     }
     
